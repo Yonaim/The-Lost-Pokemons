@@ -65,16 +65,17 @@ combine: convert
 
 # Build dist/ as the final static site root (index.html at top-level)
 # Note: build depends on combine so dist/js/data.js is ready.
-build: clean-dist combine
-	@rm -rf $(DIST_DIR)
+build: clean-dist
+	@mkdir -p $(DIST_JS_DIR)
+	$(MAKE) combine
+
 	@mkdir -p $(DIST_DIR)
+	@cp -f src/index.html $(DIST_INDEX)
+	@cp -r src/css $(DIST_CSS_DIR)
+	@cp -r src/js  $(DIST_JS_DIR)
 
-	@cp -f src/index.html $(DIST_DIR)/index.html
-	@cp -r src/css $(DIST_DIR)/css
-	@cp -r src/js  $(DIST_DIR)/js
-
-	@mkdir -p $(DIST_DIR)/assets
-	@cp -a assets/. $(DIST_DIR)/assets/
+	@mkdir -p $(DIST_ASSET_DIR)
+	@cp -a assets/. $(DIST_ASSET_DIR)/
 
 	@cp -f favicon.ico $(DIST_DIR)/favicon.ico 2>/dev/null || true
 	@touch $(DIST_DIR)/.nojekyll
