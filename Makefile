@@ -69,10 +69,12 @@ build: clean-dist combine
 	@rm -rf $(DIST_DIR)
 	@mkdir -p $(DIST_DIR)
 
-	@cp -f $(SRC_INDEX) $(DIST_INDEX)
-	@cp -r $(SRC_CSS_DIR) $(DIST_CSS_DIR)
-	@cp -r $(SRC_JS_DIR)  $(DIST_JS_DIR)
-	@cp -r assets         $(DIST_ASSET_DIR)
+	@cp -f src/index.html $(DIST_DIR)/index.html
+	@cp -r src/css $(DIST_DIR)/css
+	@cp -r src/js  $(DIST_DIR)/js
+
+	@mkdir -p $(DIST_DIR)/assets
+	@cp -a assets/. $(DIST_DIR)/assets/
 
 	@cp -f favicon.ico $(DIST_DIR)/favicon.ico 2>/dev/null || true
 	@touch $(DIST_DIR)/.nojekyll
