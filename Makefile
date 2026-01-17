@@ -1,25 +1,105 @@
-JSON_DIR = assets/data
-JS_DIR   = src/data
-DEST_DIR = src/js
+# **************************************************************************** #
+#  Project: Web Game (Static Site)
+#  Policy:
+#    - Keep src/ as source-only (no generated artifacts)
+#    - Generate bundled data.js into dist/js/data.js only
+# **************************************************************************** #
 
-JSON_FILES = $(wildcard $(JSON_DIR)/*.json)
-JS_FILES   = $(patsubst $(JSON_DIR)/%.json, $(JS_DIR)/%.js, $(JSON_FILES))
-ALL_DATA_JS = $(DEST_DIR)/data.js
+# ============================== Config / Paths ===============================
 
-.PHONY: all convert combine clean re
+# Input data (source)
+JSON_DIR      := assets/data
 
+# Temporary per-json JS modules (generated; kept out of src/)
+TMP_DIR       := build/tmp_data
+
+# Source web files (source)
+SRC_DIR       := src
+SRC_CSS_DIR   := $(SRC_DIR)/css
+SRC_JS_DIR    := $(SRC_DIR)/js
+SRC_INDEX     := $(SRC_DIR)/index.html
+
+# Deployment outputs
+DIST_DIR      := dist
+DIST_CSS_DIR  := $(DIST_DIR)/css
+DIST_JS_DIR   := $(DIST_DIR)/js
+DIST_ASSET_DIR:= $(DIST_DIR)/assets
+DIST_INDEX    := $(DIST_DIR)/index.html
+DATA_BUNDLE   := $(DIST_JS_DIR)/data.js
+
+# GitHub Pages branch deploy output
+PAGES_DIR     := docs
+
+# Tools
+NODE          := node
+
+# Files
+JSON_FILES    := $(wildcard $(JSON_DIR)/*.json)
+TMP_JS_FILES  := $(patsubst $(JSON_DIR)/%.json,$(TMP_DIR)/%.js,$(JSON_FILES))
+
+# ================================ Default ====================================
+
+.PHONY: all
 all: combine
 
-convert: $(JS_FILES)
+# ============================ Data bundling ==================================
 
-$(JS_DIR)/%.js: $(JSON_DIR)/%.json
-	@mkdir -p $(JS_DIR)
-	@name=`basename $< .json`; \
-	node scripts/json2js.js $< $@ "$${name}"
+.PHONY: convert combine
 
+# Convert each JSON to a JS module in TMP_DIR
+convert: $(TMP_JS_FILES)
+
+$(TMP_DIR)/%.js: $(JSON_DIR)/%.json
+	@mkdir -p $(TMP_DIR)
+	@name=$$(basename "$<" .json); \
+	$(NODE) scripts/json2js.js "$<" "$@" "$$name"
+
+# Combine all JS modules into dist/js/data.js (final output)
 combine: convert
-	node scripts/combine-js.js $(JS_FILES) $(ALL_DATA_JS)
-	rm -rf $(JS_DIR)
+	@mkdir -p $(DIST_JS_DIR)
+	$(NODE) scripts/combine-js.js $(TMP_JS_FILES) $(DATA_BUNDLE)
+
+# ============================= Deployment ====================================
+
+.PHONY: build pages
+
+# Build dist/ as the final static site root (index.html at top-level)
+# Note: build depends on combine so dist/js/data.js is ready.
+build: combine
+	@rm -rf $(DIST_DIR)
+	@mkdir -p $(DIST_DIR)
+
+	@cp -f $(SRC_INDEX) $(DIST_INDEX)
+	@cp -r $(SRC_CSS_DIR) $(DIST_CSS_DIR)
+	@cp -r $(SRC_JS_DIR)  $(DIST_JS_DIR)
+	@cp -r assets         $(DIST_ASSET_DIR)
+
+	@cp -f favicon.ico $(DIST_DIR)/favicon.ico 2>/dev/null || true
+	@touch $(DIST_DIR)/.nojekyll
+
+	# Overwrite with freshly generated bundle (in case src/js had a stale one)
+	@mkdir -p $(DIST_JS_DIR)
+	@cp -f $(DATA_BUNDLE) $(DIST_JS_DIR)/data.js
+
+# For GitHub Pages "Deploy from a branch", publish docs/ (copy of dist/)
+pages: build
+	@rm -rf $(PAGES_DIR)
+	@cp -r $(DIST_DIR) $(PAGES_DIR)
+
+# ============================== Utilities ====================================
+
+.PHONY: format clean clean-tmp clean-dist clean-pages
 
 format:
 	./scripts/format.sh
+
+clean: clean-tmp clean-dist clean-pages
+
+clean-tmp:
+	@rm -rf build
+
+clean-dist:
+	@rm -rf $(DIST_DIR)
+
+clean-pages:
+	@rm -rf $(PAGES_DIR)
