@@ -45,7 +45,7 @@ class GameManager {
     this.backgroundImageLoaded = false;
     // MARK: 목숨 아이콘 이미지 추가
     this.ballIcon = new Image();
-    this.ballIcon.src = "../assets/images/game/object/ball1.png"; // 볼 아이콘 경로 설정
+    this.ballIcon.src = "assets/images/game/object/ball1.png"; // 볼 아이콘 경로 설정
     this.ballIconLoaded = false;
     this.ballIcon.onload = () => {
       this.ballIconLoaded = true; // 볼 아이콘 로드 완료 플래그
@@ -169,7 +169,7 @@ class GameManager {
     }
 
     // CSS background-image로 배경 설정
-    const imagePath = `../assets/images/game/ui/background-stage-${stage}.png`;
+    const imagePath = `assets/images/game/ui/background-stage-${stage}.png`;
     this.canvas.style.backgroundImage = `url(${imagePath})`;
     this.canvas.style.backgroundSize = "cover"; // 캔버스 크기에 맞게 조정
     this.canvas.style.backgroundPosition = "center"; // 중앙 정렬
@@ -806,7 +806,7 @@ class GameManager {
     if (!indexMatch) return;
 
     const pokemonIndex = parseInt(indexMatch[1]);
-    const dizzyImagePath = `../assets/images/game/pokemon/potrait/dizzy/${pokemonIndex}.png`;
+    const dizzyImagePath = `assets/images/game/pokemon/potrait/dizzy/${pokemonIndex}.png`;
 
     // dizzyImages 배열에 이미 저장된 이미지가 있는지 확인
     if (this.pokemonHealthSystem.dizzyImages[slotIndex]) {

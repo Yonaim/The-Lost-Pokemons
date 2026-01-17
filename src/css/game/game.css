@@ -156,7 +156,7 @@ canvas {
 .pokemon-slot-frame {
   width: 64px;
   height: 64px;
-  background-image: url(../../../assets/images/game/ui/slot_frame.png);
+  background-image: url(../../assets/images/game/ui/slot_frame.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -164,7 +164,7 @@ canvas {
 }
 
 .pokemon-slot-frame.selected {
-  background-image: url(../../../assets/images/game/ui/slot_frame_selected.png);
+  background-image: url(../../assets/images/game/ui/slot_frame_selected.png);
 }
 
 /* pokemon slot 보스전에서 숨기기 */

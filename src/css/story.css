@@ -80,7 +80,7 @@
   height: 100px;
   top: 70%;
   right: 5%;
-  background: url("../../assets/images/story/fin-text.png") center/contain
+  background: url("../assets/images/story/fin-text.png") center/contain
     no-repeat;
   font-weight: bold;
   z-index: 10;

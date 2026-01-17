@@ -57,13 +57,13 @@ class BossGame extends GameManager {
       targetY: 0, // 이동 목표 Y 좌표
       image: new Image(), // 보스 이미지 객체 추가
       imageLoaded: false, // 이미지 로드 완료 플래그 추가
-      imagePath: "../assets/images/game/boss/mewtwo_normal_1.png", // 보스 이미지 상대 경로 추가
+      imagePath: "assets/images/game/boss/mewtwo_normal_1.png", // 보스 이미지 상대 경로 추가
       imageHurt: new Image(), // 피격 시 이미지 객체 추가
       imageHurtLoaded: false, // 피격 이미지 로드 완료 플래그 추가
-      imagePathHurt: "../assets/images/game/boss/mewtwo_hurt_1.png", // 피격 이미지 경로 추가
+      imagePathHurt: "assets/images/game/boss/mewtwo_hurt_1.png", // 피격 이미지 경로 추가
       imageAttack: new Image(), // 공격 시 이미지 객체 추가
       imageAttackLoaded: false, // 공격 이미지 로드 완료 플래그 추가
-      imagePathAttack: "../assets/images/game/boss/mewtwo_attack_1.png", // 공격 이미지 경로 추가
+      imagePathAttack: "assets/images/game/boss/mewtwo_attack_1.png", // 공격 이미지 경로 추가
       isHurt: false, // 현재 피격 애니메이션 중인지 여부
       hurtEndTime: 0, // 피격 애니메이션 종료 시간
       hurtAnimationDuration: 200, // 피격 애니메이션 지속 시간 (ms) // 주석 추가: 피격 애니메이션 지속 시간 명시
@@ -514,9 +514,9 @@ class BossGame extends GameManager {
       console.log("[BossGame] updateBossImagesToPhase2 호출"); // 디버깅용 로그 추가
 
     // 주석 추가: 페이즈 2 이미지 경로 설정 (_1을 _2로 변경)
-    const phase2NormalPath = "../assets/images/game/boss/mewtwo_normal_2.png";
-    const phase2HurtPath = "../assets/images/game/boss/mewtwo_hurt_2.png";
-    const phase2AttackPath = "../assets/images/game/boss/mewtwo_attack_2.png";
+    const phase2NormalPath = "assets/images/game/boss/mewtwo_normal_2.png";
+    const phase2HurtPath = "assets/images/game/boss/mewtwo_hurt_2.png";
+    const phase2AttackPath = "assets/images/game/boss/mewtwo_attack_2.png";
 
     // 주석 추가: 기본 이미지 교체
     this.boss.imagePath = phase2NormalPath;
@@ -1012,8 +1012,8 @@ class BossGame extends GameManager {
       this.playerImage = new Image();
       this.playerImage.src =
         userOption.playerType === 1
-          ? "../assets/images/game/object/pikachu-airplain.png"
-          : "../assets/images/game/object/pengdori-airplain.png";
+          ? "assets/images/game/object/pikachu-airplain.png"
+          : "assets/images/game/object/pengdori-airplain.png";
     }
 
     // 이미지가 로드되었는지 확인 후 그리기

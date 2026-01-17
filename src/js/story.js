@@ -131,7 +131,7 @@ function showEndingIllustration(done) {
 
   screen.style.backgroundColor = "black";
   screen.style.background =
-    "url('../assets/images/story/ending-memory.png') no-repeat center/contain";
+    "url('assets/images/story/ending-memory.png') no-repeat center/contain";
   showWithFade(screen);
 
   let clickCnt = 0;
@@ -305,7 +305,7 @@ function showStoryPotrait(scene) {
     pEl.classList.remove("hidden");
     const folder = scene.potrait;
     const type = scene.potrait_type || "Normal";
-    pEl.style.background = `url('../assets/images/story/potrait/${folder}/${type}.png') center/contain no-repeat`;
+    pEl.style.background = `url('assets/images/story/potrait/${folder}/${type}.png') center/contain no-repeat`;
     line.classList.add("with-potrait");
   } else {
     pEl.classList.add("hidden");
@@ -338,7 +338,7 @@ function showStoryIlustration(scene) {
   void illu.offsetWidth; // Reflow → 애니메이션 재시작
   illu.classList.add("fade-in");
 
-  illu.style.backgroundImage = `url('../assets/images/story/${scene.image}.png')`;
+  illu.style.backgroundImage = `url('assets/images/story/${scene.image}.png')`;
   illu.style.width = scene.image_width ? `${scene.image_width}px` : "100%";
 
   /* 4) 현재 이미지를 기록 */

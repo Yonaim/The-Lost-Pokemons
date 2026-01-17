@@ -60,13 +60,13 @@ class Brick {
 
       if (this.blockType === "item") {
         // 아이템 블록 프레임
-        frameImg.src = "../assets/images/game/object/block_item.png";
+        frameImg.src = "assets/images/game/object/block_item.png";
       } else {
         // 포켓몬 블록 프레임 (기존 로직 유지)
         const isLegend = this.pokeType === 5; // 전설의 포켓몬인지 여부
         frameImg.src = isLegend
-          ? "../assets/images/game/object/block_legend.png"
-          : "../assets/images/game/object/block_normal.png";
+          ? "assets/images/game/object/block_legend.png"
+          : "assets/images/game/object/block_normal.png";
       }
 
       ctx.drawImage(frameImg, this.x, this.y, this.width, this.height);
@@ -75,7 +75,7 @@ class Brick {
       ctx.globalAlpha = 1.0;
       if (this.isTarget && this.blockType === "pokemon") {
         const exMark = new Image();
-        exMark.src = "../assets/images/game/effects/mark.png";
+        exMark.src = "assets/images/game/effects/mark.png";
         ctx.drawImage(exMark, this.x + this.width - 35, this.y + 5, 30, 30);
       }
     } catch (e) {

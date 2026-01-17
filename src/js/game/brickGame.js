@@ -355,7 +355,7 @@ class BrickGame extends GameManager {
             // 포켓몬 블록 생성
             let pokeIndex = currentItem.index;
             let imagePath =
-              "../assets/images/game/pokemon/" + pokeIndex + ".png";
+              "assets/images/game/pokemon/" + pokeIndex + ".png";
             let pokeType =
               window.pokemon && window.pokemon[pokeIndex]
                 ? window.pokemon[pokeIndex].type
@@ -379,7 +379,7 @@ class BrickGame extends GameManager {
           } else if (currentItem.type === "item") {
             // 아이템 블록 생성
             let itemName = currentItem.name;
-            let imagePath = `../assets/images/game/item/outline/${itemName}-outline.png`;
+            let imagePath = `assets/images/game/item/outline/${itemName}-outline.png`;
 
             brick = new Brick(
               brickX,
@@ -474,8 +474,8 @@ class BrickGame extends GameManager {
 
       if (pokemonData) {
         // 이미지 경로 생성
-        const imagePath = `../assets/images/game/pokemon/potrait/normal/${pokemonIndex}.png`;
-        // const imagePath = `../assets/images/game/pokemon/${pokemonIndex}.png`;
+        const imagePath = `assets/images/game/pokemon/potrait/normal/${pokemonIndex}.png`;
+        // const imagePath = `assets/images/game/pokemon/${pokemonIndex}.png`;
 
         // i번째 슬롯에 포켓몬 추가  배열과 DOM 모두 업데이트)
         const slot = document.getElementById(`slot-${i}`);
@@ -940,7 +940,7 @@ class BrickGame extends GameManager {
 
       if (brick.isTarget && window.pokemon[brick.pokeIndex]) {
         let imagePath =
-          "../assets/images/game/pokemon/potrait/normal/" +
+          "assets/images/game/pokemon/potrait/normal/" +
           brick.pokeIndex +
           ".png";
         this.addPokemonToSlot(imagePath);
@@ -1124,7 +1124,7 @@ class BrickGame extends GameManager {
         );
         throw Error("userOption이 1~3 범위 내의 값이 아닙니다.");
       }
-      this.ballImage.src = `../assets/images/game/object/ball${userOption.ballType}.png`;
+      this.ballImage.src = `assets/images/game/object/ball${userOption.ballType}.png`;
     }
 
     // 이미지가 로드되었는지 확인
@@ -1157,7 +1157,7 @@ class BrickGame extends GameManager {
       this.paddleImage = new Image();
       if (userOption.playerType !== 1 && userOption.playerType !== 2)
         throw Error("userOption.playerType not in range 1~2");
-      this.paddleImage.src = `../assets/images/game/object/bar${userOption.playerType}.png`;
+      this.paddleImage.src = `assets/images/game/object/bar${userOption.playerType}.png`;
     }
 
     // 이미지가 로드되었는지 확인

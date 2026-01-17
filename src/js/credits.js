@@ -119,7 +119,7 @@ function createCreditsContent(data) {
   html += `
       <div class="credit-logo-area">
         <img class="credit-logo-img"
-             src="../assets/images/logo.png"
+             src="assets/images/logo.png"
              alt="게임 로고">
       </div>
     `;
@@ -141,7 +141,7 @@ function createCreditsContent(data) {
       entry.staff.forEach((member) => {
         html += `
             <div class="staff-member">
-              <img class="staff-pokemon" src="../assets/images/game/pokemon/${member.pokemon}.png" alt="${member.pokemon}">
+              <img class="staff-pokemon" src="assets/images/game/pokemon/${member.pokemon}.png" alt="${member.pokemon}">
               <div>
                 <span class="credit-type-name staff-name">${member.name}</span>
                 <span class="staff-role">(${member.role})</span>
@@ -169,7 +169,7 @@ function createCreditsContent(data) {
     data.saved_pokemon.forEach((id) => {
       const img = document.createElement("img");
       img.className = "credits-pokemon-img";
-      img.src = `../assets/images/game/pokemon/${id}.png`;
+      img.src = `assets/images/game/pokemon/${id}.png`;
       img.alt = `포켓몬 ${id}`;
       list.appendChild(img);
     });

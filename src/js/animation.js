@@ -23,7 +23,7 @@ function preloadCloudFrames(frameCount, basePath) {
 function startCloudAnimation() {
   const root = document.documentElement;
   const frameCount = 3;
-  const basePath = "../assets/images/background/main-menu-";
+  const basePath = "assets/images/background/main-menu-";
   let frameIdx = 0;
   let frames = [];
 

@@ -1,35 +1,35 @@
 @font-face {
   font-family: "DOSGothic";
-  src: url("../../assets/fonts/DOSGothic.ttf") format("truetype");
+  src: url("../assets/fonts/DOSGothic.ttf") format("truetype");
   font-display: swap;
 }
 @font-face {
   font-family: "DOSPilgi";
-  src: url("../../assets/fonts/DOSPilgi.ttf") format("truetype");
+  src: url("../assets/fonts/DOSPilgi.ttf") format("truetype");
   font-display: swap;
 }
 @font-face {
   font-family: "DOSMyungjo";
-  src: url("../../assets/fonts/DOSMyungjo.ttf") format("truetype");
+  src: url("../assets/fonts/DOSMyungjo.ttf") format("truetype");
   font-display: swap;
 }
 @font-face {
   font-family: "DOSIyagiBoldface";
-  src: url("../../assets/fonts/DOSIyagiBoldface.ttf") format("truetype");
+  src: url("../assets/fonts/DOSIyagiBoldface.ttf") format("truetype");
   font-display: swap;
 }
 @font-face {
   font-family: "DOSSaemmul";
-  src: url("../../assets/fonts/DOSSaemmul.ttf") format("truetype");
+  src: url("../assets/fonts/DOSSaemmul.ttf") format("truetype");
   font-display: swap;
 }
 @font-face {
   font-family: "Sam3KRFont";
-  src: url("../../assets/fonts/Sam3KRFont.ttf") format("truetype");
+  src: url("../assets/fonts/Sam3KRFont.ttf") format("truetype");
   font-display: swap;
 }
 @font-face {
   font-family: "MiraeroNormal";
-  src: url("../../assets/fonts/MiraeroNormal.ttf") format("truetype");
+  src: url("../assets/fonts/MiraeroNormal.ttf") format("truetype");
   font-display: swap;
 }

@@ -5,12 +5,12 @@
   --fg: #000000;
   --accent: rgb(255, 0, 0);
   --font-size: 1.4rem;
-  --img-logo: url("../../assets/images/logo.png");
-  --img-title-bg: url("../../assets/images/background/title-dark.png");
-  --img-main-menu-bg: url("../../assets/images/background/main-menu-0.png");
-  --img-main-menu-cleared-bg: url("../../assets/images/background/main-menu-cleared.png");
-  --img-game-result-bg: url("../../assets/images/background/game-result.png");
-  --img-game-result-gameover-bg: url("../../assets/images/background/game-result-gameover.png");
-  --story-sample: url("../../assets/images/story/intro-1.png");
+  --img-logo: url("../assets/images/logo.png");
+  --img-title-bg: url("../assets/images/background/title-dark.png");
+  --img-main-menu-bg: url("../assets/images/background/main-menu-0.png");
+  --img-main-menu-cleared-bg: url("../assets/images/background/main-menu-cleared.png");
+  --img-game-result-bg: url("../assets/images/background/game-result.png");
+  --img-game-result-gameover-bg: url("../assets/images/background/game-result-gameover.png");
+  --story-sample: url("../assets/images/story/intro-1.png");
   font-family: "DOSGothic", sans-serif;
 }

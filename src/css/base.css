@@ -3,7 +3,7 @@ body {
   min-width: 100vw;
   background-color: #ffffff;
   color: var(--fg);
-  background-image: url("../../assets/images/gba.png");
+  background-image: url("../assets/images/gba.png");
   background-repeat: no-repeat;
   background-position: center center;
   margin: 0;

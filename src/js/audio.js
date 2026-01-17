@@ -7,10 +7,10 @@ const startSfx = qs("#start-sfx");
 const activeSfxAudios = [];
 
 function getBgmPath(name) {
-  return `../assets/sounds/bgm/${name}`;
+  return `assets/sounds/bgm/${name}`;
 }
 function getSfxPath(name) {
-  return `../assets/sounds/sfx/${name}`;
+  return `assets/sounds/sfx/${name}`;
 }
 
 function stopBgm() {
