@@ -1,6 +1,6 @@
 # The Lost Pokémons
 
-![Logo](assets/images/logo.png)
+<img src="assets/images/logo.png" width="600" />
 
 Web-based Brick Breaker Fan Game (Educational / Non-Commercial)
 
@@ -76,7 +76,7 @@ Note: Public deployment is available via GitHub Pages (see Live Demo).
 
 ## Team
 
-![Staff](docs/staff.png)
+<img src="docs/staff.png" width="600" />
 
 - Seongjun Han (한성준) — Boss stage & brick-breaker core development
 - Yeonha Kim (김연하) — Main logic, scenario, UI, graphics
