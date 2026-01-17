@@ -1,4 +1,5 @@
-기타/
+dist/
+build/
 node_modules/
 package-lock.json
 sample
