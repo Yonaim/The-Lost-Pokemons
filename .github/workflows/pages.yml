@@ -34,6 +34,13 @@ jobs:
         with:
           path: dist
 
+      - name: Inspect dist tree
+        run: |
+          set -eux
+          ls -la dist
+          ls -la dist/assets || true
+          find dist -maxdepth 2 -type d -print
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
