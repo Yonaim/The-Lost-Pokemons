@@ -66,19 +66,24 @@ combine: convert
 # Build dist/ as the final static site root (index.html at top-level)
 # Note: build depends on combine so dist/js/data.js is ready.
 build: clean-dist
-	@mkdir -p $(DIST_JS_DIR)
+	@mkdir -p $(DIST_DIR)
+
 	$(MAKE) combine
 
-	@mkdir -p $(DIST_DIR)
-	@cp -f src/index.html $(DIST_INDEX)
-	@cp -r src/css $(DIST_CSS_DIR)
-	@cp -r src/js  $(DIST_JS_DIR)
+	@cp -f $(SRC_INDEX) $(DIST_INDEX)
+
+	@mkdir -p $(DIST_CSS_DIR)
+	@cp -a $(SRC_CSS_DIR)/. $(DIST_CSS_DIR)/
+
+	@mkdir -p $(DIST_JS_DIR)
+	@cp -a $(SRC_JS_DIR)/. $(DIST_JS_DIR)/
 
 	@mkdir -p $(DIST_ASSET_DIR)
 	@cp -a assets/. $(DIST_ASSET_DIR)/
 
 	@cp -f favicon.ico $(DIST_DIR)/favicon.ico 2>/dev/null || true
 	@touch $(DIST_DIR)/.nojekyll
+
 
 # For GitHub Pages "Deploy from a branch", publish docs/ (copy of dist/)
 pages: build
